@@ -7,9 +7,15 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int _columns = 10;
 
 
-    void Start()
+    void Awake()
     {
         InstantiateInventory();
+    }
+    void Start()
+    {
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void InstantiateInventory()
@@ -18,7 +24,9 @@ public class Inventory : MonoBehaviour
         {
             for (int j = 0; j < _columns; j++)
             {
-                Instantiate(_slot, transform);
+                Slot newSlot = Instantiate(_slot, transform);
+                newSlot._vectorData._row = i;
+                newSlot._vectorData._col = j;
             }
         }
     }
