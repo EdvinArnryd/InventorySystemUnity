@@ -12,6 +12,7 @@ public class Inventory : MonoBehaviour
 
     void Awake()
     {
+        _slotList = new List<Slot>();
         InstantiateInventory();
     }
     void Start()
@@ -34,9 +35,9 @@ public class Inventory : MonoBehaviour
             }
         }
 
-        // foreach(var item in _startingItems)
-        // {
-        //     _slotList.
-        // }
+        for(int i = 0; i < _startingItems.Count; i++)
+        {
+            _slotList[i].SetItem(_startingItems[i]);
+        }
     }
 }
