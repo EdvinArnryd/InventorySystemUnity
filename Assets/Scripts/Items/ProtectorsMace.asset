@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fea9e61fcbb4d442af90d441ad85fe2, type: 3}
+  m_Name: ProtectorsMace
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  _name: Protector's Mace
+  _description: Used for defending allies.
+  _rarity: 2
+  _size: 2
+  _sprite: {fileID: 21300000, guid: 194246400d90cab45a58b7d51a879523, type: 3}
+  _damage: 5

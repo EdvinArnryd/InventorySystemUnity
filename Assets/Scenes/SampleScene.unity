@@ -736,7 +736,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inventory
   _slot: {fileID: 8052773557488126162, guid: 6060262d449392b4c8f05f1293fb1f04, type: 3}
-  _slotAmount: 50
+  _rows: 5
+  _columns: 10
 --- !u!4 &49417926786387756
 Transform:
   m_ObjectHideFlags: 0
