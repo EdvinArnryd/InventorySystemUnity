@@ -9,12 +9,11 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     [SerializeField] private Color _normalColor;
     [SerializeField] private Color _hoverColor;
     [SerializeField] private Item _item;
-    [SerializeField] private ItemToolTip _toolTip;
     public VectorData _vectorData;
 
     void Start()
     {
-        _toolTip.gameObject.SetActive(false);
+        ItemToolTip.Instance.gameObject.SetActive(false);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -24,12 +23,12 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             // Tooltip Logic
             // Activate Tooltip
-            _toolTip.gameObject.SetActive(true);
+            ItemToolTip.Instance.gameObject.SetActive(true);
             // Set Pos
-            _toolTip.transform.position = transform.position;
+            ItemToolTip.Instance.transform.position = transform.position;
             // Set Data
-            _toolTip._titleText.text = _item._Name;
-            _toolTip._descriptionText.text = _item._Description;
+            ItemToolTip.Instance._titleText.text = _item._Name;
+            ItemToolTip.Instance._descriptionText.text = _item._Description;
         }
     }
 
@@ -38,7 +37,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _image.color = _normalColor;
         if (_item)
         {
-            _toolTip.gameObject.SetActive(false);
+            ItemToolTip.Instance.gameObject.SetActive(false);
         }
     }
 
