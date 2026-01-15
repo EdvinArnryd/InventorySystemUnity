@@ -7,17 +7,20 @@ public class Inventory : MonoBehaviour
     [SerializeField] private int _rows = 5;
     [SerializeField] private int _columns = 10;
     [SerializeField] private List<Item> _startingItems;
+
+    // Slots
     private List<Slot> _slotList;
+    private Slot[,] _SlotGrid;
 
 
     void Awake()
     {
-        _slotList = new List<Slot>();
+        // _slotList = new List<Slot>();
+        _SlotGrid = new Slot[_rows, _columns];
         InstantiateInventory();
     }
     void Start()
     {
-
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -31,13 +34,35 @@ public class Inventory : MonoBehaviour
                 Slot newSlot = Instantiate(_slot, transform);
                 newSlot._vectorData._row = i;
                 newSlot._vectorData._col = j;
-                _slotList.Add(newSlot);
+                // _slotList.Add(newSlot);
+
+                _SlotGrid[i,j] = newSlot;
             }
         }
 
         for(int i = 0; i < _startingItems.Count; i++)
         {
-            _slotList[i].SetItem(_startingItems[i]);
+            // _slotList[i].SetItem(_startingItems[i]);
+            _SlotGrid[0,i].SetItem(_startingItems[i]);
+        }
+    }
+
+    public void AddItem(Item item)
+    {
+        for (int i = 0; i < _rows; i++)
+        {
+            for (int j = 0; j < _columns; j++)
+            {
+                if(_SlotGrid[i,j].IsOccupied())
+                {
+                    continue;
+                }
+                else
+                {
+                    _SlotGrid[i,j].SetItem(item);
+                    return;
+                }
+            }
         }
     }
 }

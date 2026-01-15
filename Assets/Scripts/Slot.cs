@@ -60,4 +60,13 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         _image.sprite = _item._Sprite;
         _image.color = _normalColor;
     }
+
+    public bool IsOccupied()
+    {
+        if(_item)
+        {
+            return true;
+        }
+        return false;
+    }
 }
