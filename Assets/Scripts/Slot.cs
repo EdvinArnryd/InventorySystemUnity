@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -18,14 +19,15 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _image.color = _hoverColor;
+        
         if(_item)
         {
+            _image.color = _hoverColor;
             // Tooltip Logic
             // Activate Tooltip
             ItemToolTip.Instance.gameObject.SetActive(true);
             // Set Pos
-            ItemToolTip.Instance.transform.position = transform.position;
+            ItemToolTip.Instance.transform.position = Mouse.current.position.ReadValue();
             // Set Data
             ItemToolTip.Instance._titleText.text = _item._Name;
             ItemToolTip.Instance._descriptionText.text = _item._Description;
@@ -34,9 +36,9 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _image.color = _normalColor;
         if (_item)
         {
+            _image.color = _normalColor;
             ItemToolTip.Instance.gameObject.SetActive(false);
         }
     }
@@ -47,9 +49,15 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         public int _col;
     }
 
+    public void ResetSlot()
+    {
+        _image.color = new Color(0,0,0,0);
+    }
+
     public void SetItem(Item newItem)
     {
         _item = newItem;
         _image.sprite = _item._Sprite;
+        _image.color = _normalColor;
     }
 }
