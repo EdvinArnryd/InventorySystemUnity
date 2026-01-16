@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -19,7 +20,6 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        
         if(_item)
         {
             _image.color = _hoverColor;
@@ -31,6 +31,8 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             // Set Data
             ItemToolTip.Instance._titleText.text = _item._Name;
             ItemToolTip.Instance._descriptionText.text = _item._Description;
+            ItemDragable.Instance._isHovering = true;
+            ItemDragable.Instance.ItemHovered(_item);
         }
     }
 
@@ -40,6 +42,7 @@ public class Slot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             _image.color = _normalColor;
             ItemToolTip.Instance.gameObject.SetActive(false);
+            ItemDragable.Instance._isHovering = false;
         }
     }
 
