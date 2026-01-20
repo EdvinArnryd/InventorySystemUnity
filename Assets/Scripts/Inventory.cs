@@ -37,7 +37,7 @@ public class Inventory : MonoBehaviour
 
         for(int i = 0; i < _startingItems.Count; i++)
         {
-            _SlotGrid[0,i].SetItem(_startingItems[i]);
+            _SlotGrid[0,i].CreateItemUI(_startingItems[i]);
         }
     }
 
@@ -53,7 +53,7 @@ public class Inventory : MonoBehaviour
                 }
                 else
                 {
-                    _SlotGrid[i,j].SetItem(item);
+                    _SlotGrid[i,j].CreateItemUI(item);
                     return;
                 }
             }
