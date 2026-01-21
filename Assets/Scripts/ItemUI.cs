@@ -13,7 +13,7 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointe
         ItemBeginDrag();
         ItemDragable.Instance.Activate();
         ItemDragable.Instance.SetDraggingItem(_item);
-        ItemDragable.Instance.SetCurrentSlot(GetParentSlot());
+        ItemDragable.Instance.SetCurrentSlot(_parentSlot);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -32,12 +32,9 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointe
         if (_item && !ItemDragable.Instance.GetIsDragging())
         {
             // Activate Tooltip
-            ItemToolTip.Instance.gameObject.SetActive(true);
+            ItemToolTip.Instance.Activate(_item);
             // Set Pos
             ItemToolTip.Instance.transform.position = eventData.position;
-            // Set Data
-            ItemToolTip.Instance._titleText.text = _item._Name;
-            ItemToolTip.Instance._descriptionText.text = _item._Description;
         }
     }
 
@@ -45,7 +42,7 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointe
     {
         if (_item)
         {
-            ItemToolTip.Instance.gameObject.SetActive(false);
+            ItemToolTip.Instance.Deactivate();
         }
     }
 
@@ -68,7 +65,7 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointe
         Color temp = _image.color;
         temp.a = 1f;
         _image.color = temp;
-        _image.raycastTarget = true; ;
+        _image.raycastTarget = true;
     }
 
     public Item GetItem()
@@ -79,10 +76,5 @@ public class ItemUI : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IPointe
     public void SetParentSlot(Slot slot)
     {
         _parentSlot = slot;
-    }
-
-    public Slot GetParentSlot()
-    {
-        return _parentSlot;
     }
 }

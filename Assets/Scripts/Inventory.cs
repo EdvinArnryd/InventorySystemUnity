@@ -20,7 +20,7 @@ public class Inventory : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        ItemToolTip.Instance.gameObject.SetActive(false);
+        ItemToolTip.Instance.Deactivate();
     }
 
     private void InstantiateInventory()

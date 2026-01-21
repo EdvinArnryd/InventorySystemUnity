@@ -52,6 +52,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemToolTip
   _titleText: {fileID: 8761614952424369984}
   _descriptionText: {fileID: 5932131705814302470}
+  _commonColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 1}
+  _rareColor: {r: 0, g: 0.32963872, b: 1, a: 1}
+  _epicColor: {r: 0.68939877, g: 0, b: 1, a: 1}
+  _legendaryColor: {r: 0.7612684, g: 0.7830189, b: 0, a: 1}
 --- !u!225 &4663402051504180245
 CanvasGroup:
   m_ObjectHideFlags: 0
