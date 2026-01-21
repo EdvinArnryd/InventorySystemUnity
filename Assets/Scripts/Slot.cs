@@ -36,11 +36,30 @@ public class Slot : MonoBehaviour, IDropHandler
         Slot sourceSlot = ItemDragable.Instance.GetCurrentSlot();
         
         if(sourceSlot == this) return;
-        if(IsOccupied()) return;
+        if(IsOccupied())
+        { 
+            // Create Item Reference
+            Item sourceItem = _currentItem.GetItem();
+            Item draggedItem = ItemDragable.Instance.GetItem();
+
+            // Destroy items in slots
+            sourceSlot.DestroyItemUI();
+            DestroyItemUI();
+
+            // Create items
+            sourceSlot.CreateItemUI(sourceItem);
+            CreateItemUI(draggedItem);
+
+            ItemDragable.Instance.Deactivate();
+            return;
+
+        }
 
         CreateItemUI(ItemDragable.Instance.GetItem());
         sourceSlot.DestroyItemUI();
 
         ItemDragable.Instance.Deactivate();
     }
+
+    
 }
