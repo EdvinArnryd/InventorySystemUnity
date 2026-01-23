@@ -20,7 +20,6 @@ public class Inventory : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        ItemToolTip.Instance.Deactivate();
     }
 
     private void InstantiateInventory()
@@ -47,13 +46,42 @@ public class Inventory : MonoBehaviour
         {
             for (int j = 0; j < _columns; j++)
             {
-                if(_SlotGrid[i,j].IsOccupied())
+                if(_SlotGrid[i, j].IsOccupied())
                 {
                     continue;
                 }
                 else
                 {
                     _SlotGrid[i,j].CreateItemUI(item);
+                    return;
+                }
+            }
+        }
+    }
+
+    public void Add2DItem(Item item)
+    {
+        for (int i = 0; i < _rows; i++)
+        {
+            for (int j = 0; j < _columns; j++)
+            {
+                if (j + 1 > _columns -1)
+                {
+                    continue;
+                }
+                if (_SlotGrid[i,j].IsOccupied()
+                || _SlotGrid[i, j+1].IsOccupied()
+                || _SlotGrid[i+1, j].IsOccupied() 
+                || _SlotGrid[i+1, j + 1].IsOccupied())
+                {
+                    continue;
+                }
+                else
+                {
+                    _SlotGrid[i, j].CreateItemUI(item);
+                    _SlotGrid[i, j + 1].CreateItemUI(item);
+                    _SlotGrid[i + 1, j].CreateItemUI(item);
+                    _SlotGrid[i + 1, j + 1].CreateItemUI(item);
                     return;
                 }
             }

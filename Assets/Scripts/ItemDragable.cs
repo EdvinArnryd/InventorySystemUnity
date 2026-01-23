@@ -21,6 +21,7 @@ public class ItemDragable : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
         _canvasGroup = GetComponent<CanvasGroup>();
+        Deactivate();
     }
 
     public void Activate()

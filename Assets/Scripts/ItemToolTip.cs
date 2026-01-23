@@ -20,6 +20,7 @@ public class ItemToolTip : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
+        Deactivate();
     }
 
     public void Activate(Item item)
