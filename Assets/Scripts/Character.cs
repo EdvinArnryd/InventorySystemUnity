@@ -3,6 +3,8 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     [SerializeField] private Slot _slotPrefab;
+    [SerializeField] private ItemUI _itemUIPrefab;
+    [SerializeField] private Item _item;
 
     [SerializeField] private GameObject _head;
     [SerializeField] private GameObject _shoulders;
@@ -14,7 +16,7 @@ public class Character : MonoBehaviour
     [SerializeField] private GameObject _feet;
     [SerializeField] private GameObject _weapon;
 
-    void Start()
+    void Awake()
     {
         IterateOverCharacter();
     }
@@ -29,6 +31,9 @@ public class Character : MonoBehaviour
         Instantiate(_slotPrefab, _torso.transform);
         Instantiate(_slotPrefab, _waist.transform);
         Instantiate(_slotPrefab, _feet.transform);
-        Instantiate(_slotPrefab, _weapon.transform);
+
+        // Spawn Weapon
+        Slot slot = Instantiate(_slotPrefab, _weapon.transform);
+        slot.CreateItemUI(_item);
     }
 }

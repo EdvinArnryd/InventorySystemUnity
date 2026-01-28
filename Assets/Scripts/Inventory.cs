@@ -10,7 +10,6 @@ public class Inventory : MonoBehaviour
 
     private Slot[,] _SlotGrid;
 
-
     void Awake()
     {
         _SlotGrid = new Slot[_rows, _columns];

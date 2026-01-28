@@ -1,8 +1,9 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IDropHandler
+public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler
 {
     [SerializeField] private Transform _itemUISpawnTransform;
     [SerializeField] private ItemUI _itemUIPrefab;
@@ -61,5 +62,15 @@ public class Slot : MonoBehaviour, IDropHandler
         ItemDragable.Instance.Deactivate();
     }
 
-    
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (IsOccupied())
+        {
+            print("This Slot is Occupied!");
+        }
+        else
+        {
+            print("This slot is free!");
+        }
+    }
 }
