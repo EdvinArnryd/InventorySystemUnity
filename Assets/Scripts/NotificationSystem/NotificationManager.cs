@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Pool;
 
-public enum ItemType
+public enum NotificationItemType
 {
     Weapon,
     Upgrade,
@@ -58,7 +58,7 @@ public class NotificationManager : MonoBehaviour
     /// <param name="description">Description of the notification</param>
     /// <param name="sprite">The sprite of the notification</param>
     /// <param name="itemType">The specific item</param>
-    public void AddNotificationToQueue(string title, string description, Sprite sprite, ItemType itemType)
+    public void AddNotificationToQueue(string title, string description, Sprite sprite, NotificationItemType itemType)
     {
         NotificationData notifData = new NotificationData
         {
@@ -80,7 +80,7 @@ public class NotificationManager : MonoBehaviour
     /// <param name="title">Title of the notification</param>
     /// <param name="description">Description of the notification</param>
     /// <param name="itemType">The specific item</param>
-    public void AddNotificationToQueue(string title, string description, ItemType itemType)
+    public void AddNotificationToQueue(string title, string description, NotificationItemType itemType)
     {
         NotificationData notifData = new NotificationData
         {
@@ -106,7 +106,7 @@ public class NotificationManager : MonoBehaviour
             title = _defaultTitleText,
             description = _defaultDescriptionText,
             sprite = _defaultSprite,
-            color = ColorGenerator(ItemType.Undefined)
+            color = ColorGenerator(NotificationItemType.Undefined)
         };
 
         _notificationQueue.Enqueue(notifData);
@@ -138,19 +138,19 @@ public class NotificationManager : MonoBehaviour
     /// <summary>
     /// Returns the color based on the item type
     /// </summary>
-    private Color ColorGenerator(ItemType item)
+    private Color ColorGenerator(NotificationItemType item)
     {
         switch(item)
         {
-            case ItemType.Weapon:
+            case NotificationItemType.Weapon:
                 return _weaponColor;
-            case ItemType.Upgrade:
+            case NotificationItemType.Upgrade:
                 return _upgradeColor;
-            case ItemType.Crate:
+            case NotificationItemType.Crate:
                 return _crateColor;
-            case ItemType.Contract:
+            case NotificationItemType.Contract:
                 return _contractColor;
-            case ItemType.Undefined:
+            case NotificationItemType.Undefined:
                 return _undefinedColor;
             default:
                 return _undefinedColor;
