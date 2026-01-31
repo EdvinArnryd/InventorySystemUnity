@@ -18,19 +18,34 @@ public class Character : MonoBehaviour
 
     void Awake()
     {
-        IterateOverCharacter();
+        CreateCharacterSlots();
     }
 
-    private void IterateOverCharacter()
+    private void CreateCharacterSlots()
     {
-        Instantiate(_slotPrefab, _head.transform);
-        Instantiate(_slotPrefab, _shoulders.transform);
-        Instantiate(_slotPrefab, _neck.transform);
-        Instantiate(_slotPrefab, _ring.transform);
-        Instantiate(_slotPrefab, _hands.transform);
-        Instantiate(_slotPrefab, _torso.transform);
-        Instantiate(_slotPrefab, _waist.transform);
-        Instantiate(_slotPrefab, _feet.transform);
+        Slot headSlot = Instantiate(_slotPrefab, _head.transform);
+        headSlot.SetItemSlotType(ItemType.Head);
+
+        Slot shouldersSlot = Instantiate(_slotPrefab, _shoulders.transform);
+        shouldersSlot.SetItemSlotType(ItemType.Shoulders);
+
+        Slot neckSlot = Instantiate(_slotPrefab, _neck.transform);
+        neckSlot.SetItemSlotType(ItemType.Neck);
+
+        Slot ringSlot = Instantiate(_slotPrefab, _ring.transform);
+        ringSlot.SetItemSlotType(ItemType.Ring);
+
+        Slot handsSlot = Instantiate(_slotPrefab, _hands.transform);
+        handsSlot.SetItemSlotType(ItemType.Hands);
+
+        Slot torsoSlot = Instantiate(_slotPrefab, _torso.transform);
+        torsoSlot.SetItemSlotType(ItemType.Torso);
+
+        Slot waistSlot = Instantiate(_slotPrefab, _waist.transform);
+        waistSlot.SetItemSlotType(ItemType.Waist);
+
+        Slot feetSlot = Instantiate(_slotPrefab, _feet.transform);
+        feetSlot.SetItemSlotType(ItemType.Feet);
 
         // Spawn Weapon
         Slot slot = Instantiate(_slotPrefab, _weapon.transform);

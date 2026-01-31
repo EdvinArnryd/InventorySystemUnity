@@ -8,7 +8,7 @@ public class Slot : MonoBehaviour, IDropHandler
     [SerializeField] private Transform _itemUISpawnTransform;
     [SerializeField] private ItemUI _itemUIPrefab;
     private ItemUI _currentItem;
-    [SerializeField] private ItemType _slotItemType;
+    private ItemType _slotItemType;
 
     public void CreateItemUI(Item newItem)
     {
