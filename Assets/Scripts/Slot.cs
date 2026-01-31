@@ -3,11 +3,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler
+public class Slot : MonoBehaviour, IDropHandler
 {
     [SerializeField] private Transform _itemUISpawnTransform;
     [SerializeField] private ItemUI _itemUIPrefab;
     private ItemUI _currentItem;
+    [SerializeField] private ItemType _slotItemType;
 
     public void CreateItemUI(Item newItem)
     {
@@ -62,15 +63,8 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler
         ItemDragable.Instance.Deactivate();
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
+    public void SetItemSlotType(ItemType itemType)
     {
-        if (IsOccupied())
-        {
-            print("This Slot is Occupied!");
-        }
-        else
-        {
-            print("This slot is free!");
-        }
+        _slotItemType = itemType;
     }
 }
