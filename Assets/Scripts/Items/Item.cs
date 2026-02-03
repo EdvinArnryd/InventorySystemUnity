@@ -9,6 +9,7 @@ public class Item : ScriptableObject
     [SerializeField] private int _size;
     [SerializeField] private Sprite _sprite;
     [SerializeField] private int _damage;
+    [SerializeField] private ItemType _itemType;
 
     public string _Name => _name;
     public string _Description => _description;
@@ -16,4 +17,5 @@ public class Item : ScriptableObject
     public int _Size => _size;
     public Sprite _Sprite => _sprite;
     public int _Damage => _damage;
+    public ItemType _ItemType => _itemType;
 }

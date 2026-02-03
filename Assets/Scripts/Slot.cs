@@ -38,6 +38,7 @@ public class Slot : MonoBehaviour, IDropHandler
         Slot sourceSlot = ItemDragable.Instance.GetCurrentSlot();
         
         if(sourceSlot == this) return;
+        if(_slotItemType != ItemDragable.Instance.GetItem()._ItemType) return;
         if(IsOccupied())
         { 
             // Create Item Reference
