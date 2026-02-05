@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour
         {
             for (int j = 0; j < _columns; j++)
             {
-                if (j + 1 > _columns -1)
+                if (j + 1 >= _columns)
                 {
                     continue;
                 }
