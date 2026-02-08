@@ -28,7 +28,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -37,6 +37,15 @@
                     "name": "Sprint",
                     "type": "PassThrough",
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "OpenInventory",
+                    "type": "Button",
+                    "id": "397c304c-fece-4dc5-84c7-86f235805464",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -219,27 +228,10 @@
                     "action": "Sprint",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "UI",
-            "id": "a22006af-10e4-4b28-87ab-ea49c446cff4",
-            "actions": [
-                {
-                    "name": "OpenInventory",
-                    "type": "Button",
-                    "id": "51e70bd4-579e-422d-b84e-81c328d9b916",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
+                },
                 {
                     "name": "",
-                    "id": "c20941df-a33c-4e61-af28-458c2c5a0425",
+                    "id": "b872e4ed-09dc-4fa8-9e70-42d2b666821c",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",

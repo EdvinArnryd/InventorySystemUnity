@@ -1914,6 +1914,7 @@ MonoBehaviour:
   move: {x: 0, y: 0}
   look: {x: 0, y: 0}
   jump: 0
+  openInventory: 0
   sprint: 0
   analogMovement: 0
   cursorLocked: 1
@@ -5282,8 +5283,9 @@ GameObject:
   - component: {fileID: 5908879015089423693}
   - component: {fileID: 9201787670263543111}
   - component: {fileID: 5588221278214847660}
+  - component: {fileID: 9201787670263543112}
   m_Layer: 5
-  m_Name: CharacterInventory
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5374,6 +5376,20 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &9201787670263543112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9130473269230502798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa5d57a2030cce34c869f36f1fa600aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StarterAssets.UIManager
+  _inventoryUI: {fileID: 1938867378}
+  _input: {fileID: 2479103970944483210}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
